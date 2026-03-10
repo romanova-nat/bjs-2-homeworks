@@ -37,9 +37,8 @@ Student.prototype.exclude = function (reason) {
     delete this.subject;
     delete this.marks;
     [this.excluded].push(reason);
-    return "Студент исключен";
+    return "Прогулы";
   } else {
-    return "Студент уже был исключен";
+    return "Прогулы";
   }
-  
 }
