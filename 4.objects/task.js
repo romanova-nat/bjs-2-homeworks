@@ -23,7 +23,7 @@ Student.prototype.addMarks = function (...marksToAdd) {
 }
 
 Student.prototype.getAverage = function () {
-  if (!this.hasOwnProperty("marks")) {
+  if ((!this.hasOwnProperty("marks")) || this.marks.length === 0) {
    return 0;
   } else {
     let sum = 0;
