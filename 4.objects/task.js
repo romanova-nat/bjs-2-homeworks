@@ -33,12 +33,8 @@ Student.prototype.getAverage = function () {
 }
 
 Student.prototype.exclude = function (reason) {
-  if (this.hasOwnProperty("marks")) {
     delete this.subject;
     delete this.marks;
-    [this.excluded].push(reason);
-    return "Прогулы";
-  } else {
-    return "Прогулы";
-  }
+    [this.excluded] = [reason];
+    return this.excluded;
 }
