@@ -17,9 +17,7 @@ Student.prototype.setSubject = function (subjectName) {
 Student.prototype.addMarks = function (...marksToAdd) {
   if (this.hasOwnProperty("marks")) {
    this.marks.push(...marksToAdd);
-  } else {
-    console.log("Студент отчислен");
-  }
+  } 
 }
 
 Student.prototype.getAverage = function () {
@@ -35,7 +33,13 @@ Student.prototype.getAverage = function () {
 }
 
 Student.prototype.exclude = function (reason) {
-  delete this.subject;
-  delete this.marks;
-  [this.excluded].push(reason);
+  if (this.hasOwnProperty("marks")) {
+    delete this.subject;
+    delete this.marks;
+    [this.excluded].push(reason);
+    return "Студент исключен";
+  } else {
+    return "Студент уже был исключен";
+  }
+  
 }
