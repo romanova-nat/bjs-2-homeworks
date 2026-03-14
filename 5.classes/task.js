@@ -91,3 +91,46 @@ class Library {
         }
         }
 }
+
+
+// Задание из раздела Классы (доп/задание)
+
+
+class Student {
+  constructor(name) {
+    this.name = name,
+      this.marks = {}
+  }    
+
+  addMark(marksToAdd, subjectName) {
+    if (marksToAdd > 5 || marksToAdd < 2) {
+      return;
+    };
+
+    if (!this.marks.hasOwnProperty(subjectName)) {
+      this.marks[subjectName] = [];
+      };
+
+      this.marks[subjectName].push(marksToAdd);
+  }
+
+  getAverageBySubject(subject){
+
+    if (!this.marks.hasOwnProperty(subject) || this.marks[subject].length === 0) {
+      return 0;
+    }
+    let sum = this.marks[subject].reduce((acc, item) => acc + item, 0);
+    return sum / this.marks[subject].length;
+
+  }
+
+  getAverage() {
+    let subjectArr= Object.keys(this.marks);
+
+    let subjectSum = subjectArr.reduce((acc, index) => {
+      return acc + this.getAverageBySubject(index);
+    }, 0);
+
+    return subjectSum / subjectArr.length;
+  }
+}
