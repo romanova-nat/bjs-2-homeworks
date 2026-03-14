@@ -17,26 +17,22 @@ Student.prototype.setSubject = function (subjectName) {
 Student.prototype.addMarks = function (...marksToAdd) {
   if (this.hasOwnProperty("marks")) {
    this.marks.push(...marksToAdd);
-  } else {
-    return this.excluded;
-  }
+  } 
 }
 
 Student.prototype.getAverage = function () {
   if ((!this.hasOwnProperty("marks")) || this.marks.length === 0) {
    return 0;
-  } else {
+  } 
     let sum = 0;
     for (let i = 0; i < this.marks.length; i++) {
       sum += this.marks[i];
    }
    return sum / this.marks.length;
-  }
 }
 
 Student.prototype.exclude = function (reason) {
     delete this.subject;
     delete this.marks;
     this.excluded = reason;
-    return this.excluded;
 }
