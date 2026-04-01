@@ -30,8 +30,6 @@ class AlarmClock {
 			hour: "2-digit",
 			minute: "2-digit",
 		});
-        
-        // return String((new Date().getHours()) + ":" + (new Date().getMinutes()));
     }
 
     start() {
@@ -42,7 +40,7 @@ class AlarmClock {
         let alarmStart = () => {
             if (this.alarmCollection.forEach(i => i.time === this.getCurrentFormattedTime() && i.canCall)) {
                 i.canCall = false;
-                i.callback;
+                i.callback();
             }
         }
         this.intervalId = setInterval(alarmStart, 1000);
