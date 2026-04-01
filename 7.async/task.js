@@ -40,7 +40,7 @@ class AlarmClock {
         } 
 
         let alarmStart = () => {
-            if (this.alarmCollection.forEach(i => i.time === this.getCurrentFormattedTime() && i.canCall)) {
+            if (this.alarmCollection.forEach(i => i.time === this.getCurrentFormattedTime() && i.canCall === true)) {
                 i.canCall = false;
                 i.callback;
             }
