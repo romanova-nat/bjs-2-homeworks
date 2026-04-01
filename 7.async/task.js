@@ -26,7 +26,12 @@ class AlarmClock {
     }
 
     getCurrentFormattedTime() {
-        return String((new Date().getHours()) + ":" + (new Date().getMinutes()));
+        return new Date().toLocaleTimeString("ru-Ru", {
+			hour: "2-digit",
+			minute: "2-digit",
+		});
+        
+        // return String((new Date().getHours()) + ":" + (new Date().getMinutes()));
     }
 
     start() {
@@ -35,7 +40,7 @@ class AlarmClock {
         } 
 
         let alarmStart = () => {
-            if (this.alarmCollection.forEach(i => i.time === this.getCurrentFormattedTime() && i.canCall === true)) {
+            if (this.alarmCollection.forEach(i => i.time === this.getCurrentFormattedTime() && i.canCall)) {
                 i.canCall = false;
                 i.callback;
             }
