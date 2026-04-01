@@ -6,7 +6,7 @@ class AlarmClock {
 
     addClock(timeToAdd, action) {
 
-        if (timeToAdd === false || action === false) {
+        if (!timeToAdd || !action) {
             throw new Error('Отсутствуют обязательные аргументы');
         }
 
