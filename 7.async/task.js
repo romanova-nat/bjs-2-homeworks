@@ -37,13 +37,22 @@ class AlarmClock {
            return;
         } 
 
-        let alarmStart = () => {
-            if (this.alarmCollection.forEach(i => i.time === this.getCurrentFormattedTime() && i.canCall)) {
-                i.canCall = false;
-                i.callback();
-            }
-        }
-        this.intervalId = setInterval(alarmStart, 1000);
+        this.intervalId = setInterval(() => {
+            this.alarmCollection.forEach(i => {
+                if (i.time === this.getCurrentFormattedTime() && i.canCall) {
+                    i.canCall = false;
+                    i.callback();
+                }
+            });
+        }, 1000);
+
+        // let alarmStart = () => {
+        //     if (this.alarmCollection.forEach(i => i.time === this.getCurrentFormattedTime() && i.canCall)) {
+        //         i.canCall = false;
+        //         i.callback();
+        //     }
+        // }
+        // this.intervalId = setInterval(alarmStart, 1000);
     }
 
     stop() {
