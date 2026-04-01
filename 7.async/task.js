@@ -6,12 +6,7 @@ class AlarmClock {
 
     addClock(timeToAdd, action) {
 
-        // регулярное выражение на проверку формата времени hh:mm, вернет true / false
-        // let regexp = /^([0-1]\d|2[0-3]):[0-5]\d:[0-5]\d$/;
-        // let result = regexp.test(timeToAdd);
-
-
-        if (timeToAdd === null || action === null) {
+        if (timeToAdd === false || action === false) {
             throw new Error('Отсутствуют обязательные аргументы');
         }
 
